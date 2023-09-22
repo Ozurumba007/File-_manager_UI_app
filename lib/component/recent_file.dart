@@ -1,18 +1,12 @@
+import 'package:file_manager_app_ui/component/list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RecentFile extends StatelessWidget {
   final String text;
-  final String title;
-  final String subTitle;
-  final IconData icon;
-
   const RecentFile({
     super.key,
     required this.text,
-    required this.title,
-    required this.subTitle,
-    required this.icon,
   });
 
   @override
@@ -28,68 +22,61 @@ class RecentFile extends StatelessWidget {
           child: Center(
             child: Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        text,
-                        style: GoogleFonts.poppins(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          // color: Colors.white,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Icon(Icons.dashboard_rounded),
-                          SizedBox(width: 10),
-                          Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              color: Colors.grey[300],
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Icon(Icons.menu),
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          text,
+                          style: GoogleFonts.poppins(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            // color: Colors.white,
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  // List Tile
-                  ListTile(
-                    leading: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Icon(
-                        icon,
-                        color: Colors.white,
-                      ),
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.dashboard_rounded),
+                            SizedBox(width: 10),
+                            Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Icon(Icons.menu),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    title: Text(
-                      title,
-                      style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    // List Tile
+                    CustomListTile(
+                      title: 'Image.jpg',
+                      subTitle: '100.4 MB',
+                      icon: Icons.image,
+                      color: Colors.deepPurple,
                     ),
-                    subtitle: Text(
-                      subTitle,
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
+                    Divider(),
+                    CustomListTile(
+                      title: 'Preview.mp4',
+                      subTitle: '100.4 MB',
+                      icon: Icons.music_note_outlined,
+                      color: Colors.redAccent,
                     ),
-                    trailing: Icon(Icons.more_vert),
-                  ),
-                ],
+                    Divider(),
+                    CustomListTile(
+                      title: 'Documents',
+                      subTitle: '95.6 MB',
+                      icon: Icons.document_scanner_outlined,
+                      color: Colors.lightBlue,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

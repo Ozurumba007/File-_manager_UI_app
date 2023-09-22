@@ -2,7 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FolderStructure extends StatelessWidget {
-  const FolderStructure({super.key});
+  final Color color;
+  final IconData icon;
+  final String text;
+  final String subTitle;
+  const FolderStructure({
+    super.key,
+    required this.color,
+    required this.icon,
+    required this.text,
+    required this.subTitle,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +32,17 @@ class FolderStructure extends StatelessWidget {
               height: 50,
               width: 50,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: color,
                 borderRadius: BorderRadius.circular(25),
               ),
-              child: Icon(Icons.dashboard_outlined),
+              child: Icon(
+                icon,
+                color: Colors.white,
+              ),
             ),
             SizedBox(height: 5),
             Text(
-              'UI/UX Design',
+              text,
               style: GoogleFonts.poppins(
                 fontSize: 20,
                 fontWeight: FontWeight.w500,
@@ -38,7 +51,7 @@ class FolderStructure extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              '120 files, 128GB',
+              subTitle,
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,

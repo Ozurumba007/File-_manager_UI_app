@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:file_manager_app_ui/component/custom_app_bar.dart';
 import 'package:file_manager_app_ui/component/folder_structure.dart';
 import 'package:file_manager_app_ui/component/recent_file.dart';
@@ -15,17 +17,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 1, 13, 25),
+      backgroundColor: const Color.fromARGB(255, 1, 13, 25),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // app bar
-            SizedBox(height: 10),
-            CustomAppBar(),
+            const SizedBox(height: 10),
+            const CustomAppBar(),
 
             // heading text
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
@@ -37,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
@@ -64,7 +66,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            SizedBox(height: 50),
+            const SizedBox(height: 40),
 
             // folder structure
             Padding(
@@ -74,21 +76,28 @@ class _HomePageState extends State<HomePage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    FolderStructure(),
-                    SizedBox(width: 10),
-                    FolderStructure(),
+                    const FolderStructure(
+                      color: Colors.blue,
+                      icon: Icons.dashboard_outlined,
+                      text: 'Internal Storage',
+                      subTitle: '130 files, 120GB',
+                    ),
+                    const SizedBox(width: 10),
+                    const FolderStructure(
+                      color: Colors.redAccent,
+                      icon: Icons.video_call,
+                      text: 'All Vidoes',
+                      subTitle: '13 files, 10GB',
+                    ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
             // recent file + list Tile
-            RecentFile(
+            const RecentFile(
               text: 'Recent files',
-              icon: Icons.image,
-              title: 'Image.jpg',
-              subTitle: '100.4MB',
             ),
           ],
         ),
