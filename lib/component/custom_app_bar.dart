@@ -12,7 +12,7 @@ class CustomAppBar extends StatelessWidget {
           height: 50,
           width: 50,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 4, 5, 22),
+            color: Colors.grey[800],
             borderRadius: BorderRadius.circular(12),
           ),
           child: Icon(Icons.menu, color: Colors.white),
@@ -21,7 +21,7 @@ class CustomAppBar extends StatelessWidget {
           height: 50,
           width: 50,
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 4, 5, 22),
+            color: Colors.grey[800],
             borderRadius: BorderRadius.circular(12),
           ),
           child: Icon(Icons.search, color: Colors.white),
