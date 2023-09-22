@@ -1,4 +1,5 @@
 import 'package:file_manager_app_ui/component/custom_app_bar.dart';
+import 'package:file_manager_app_ui/component/folder_structure.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -58,6 +59,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 50),
 
               // folder structure
+              FolderStructure(),
 
               // recent file + list Tile
             ],
