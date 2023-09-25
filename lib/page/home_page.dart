@@ -80,11 +80,9 @@ class _HomePageState extends State<HomePage> {
                     FolderStructure(
                       onTap: () {
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SecondPage(),
-                          ),
-                        );
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SecondPage()));
                       },
                       color: Colors.blue,
                       icon: Icons.dashboard_outlined,
@@ -105,8 +103,8 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 10),
 
             // recent file + list Tile
-            const RecentFile(
-              text: 'Recent files',
+            Files(
+              text: 'Recent Files',
             ),
           ],
         ),
