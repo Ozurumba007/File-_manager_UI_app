@@ -3,6 +3,7 @@
 import 'package:file_manager_app_ui/component/custom_app_bar.dart';
 import 'package:file_manager_app_ui/component/folder_structure.dart';
 import 'package:file_manager_app_ui/component/recent_file.dart';
+import 'package:file_manager_app_ui/page/second_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -76,7 +77,15 @@ class _HomePageState extends State<HomePage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    const FolderStructure(
+                    FolderStructure(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SecondPage(),
+                          ),
+                        );
+                      },
                       color: Colors.blue,
                       icon: Icons.dashboard_outlined,
                       text: 'Internal Storage',
