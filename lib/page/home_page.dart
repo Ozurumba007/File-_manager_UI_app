@@ -2,10 +2,12 @@
 
 import 'package:file_manager_app_ui/component/custom_app_bar.dart';
 import 'package:file_manager_app_ui/component/folder_structure.dart';
-import 'package:file_manager_app_ui/component/recent_file.dart';
 import 'package:file_manager_app_ui/page/second_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../component/list_tile.dart';
+import '../component/text_file.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -103,9 +105,54 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 10),
 
             // recent file + list Tile
-            Files(
-              text: 'Recent Files',
-            ),
+            Expanded(
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+                child: Container(
+                  color: Colors.white,
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15.0,
+                        vertical: 5.0,
+                      ),
+                      child: Column(
+                        children: [
+                          TextFile(
+                            text: 'Recent File',
+                            icon: Icons.dashboard,
+                            secondIcon: Icons.list,
+                          ),
+                          CustomListTile(
+                            subTitle: '100.4 MB',
+                            title: 'Image.jpg',
+                            icon: Icons.image,
+                            color: Colors.purple.shade800,
+                          ),
+                          Divider(),
+                          CustomListTile(
+                            subTitle: '95.6 MB',
+                            title: 'Preview.mp4',
+                            icon: Icons.audiotrack,
+                            color: Colors.red.shade400,
+                          ),
+                          Divider(),
+                          CustomListTile(
+                            subTitle: '95.6 MB',
+                            title: 'Preview.mp4',
+                            icon: Icons.description,
+                            color: Colors.blue.shade400,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),

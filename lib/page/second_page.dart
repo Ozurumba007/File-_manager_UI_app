@@ -2,6 +2,7 @@
 
 import 'package:file_manager_app_ui/component/custom_app_bar.dart';
 import 'package:file_manager_app_ui/component/list_tile.dart';
+import 'package:file_manager_app_ui/component/short_cut_detail.dart';
 import 'package:file_manager_app_ui/component/text_file.dart';
 import 'package:flutter/material.dart';
 
@@ -20,70 +21,106 @@ class _SecondPageState extends State<SecondPage> {
       body: SafeArea(
         child: Column(
           children: [
+            SizedBox(height: 5),
             CustomAppBar(),
+            SizedBox(height: 5),
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    children: [
-                      TextFile(text: 'Important file'),
-                      Row(
-                        children: [
-                          Column(
-                            children: [
-                              Container(
-                                height: 100,
-                                width: 100,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  color: Colors.lightBlue,
-                                ),
-                                child: Icon(
-                                  Icons.image,
-                                  color: Colors.white,
-                                  size: 50,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            height: 100,
-                            width: 100,
-                            color: Colors.red,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            color: Colors.lime,
-                            height: 100,
-                            width: 100,
-                          ),
-                          Container(
-                            height: 100,
-                            width: 100,
-                            color: Colors.amberAccent,
-                          ),
-                          Container(
-                            height: 100,
-                            width: 100,
-                            color: Colors.black38,
-                          ),
-                        ],
-                      ),
-                      CustomListTile(
-                        subTitle: '45MB',
-                        title: 'New Concept Sketch',
-                        icon: Icons.edit,
-                        color: Colors.blue,
-                      )
-                    ],
+              child: SingleChildScrollView(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Column(
+                      children: [
+                        TextFile(
+                          text: 'Important file',
+                          icon: Icons.dashboard,
+                          secondIcon: Icons.list,
+                        ),
+                        SizedBox(height: 5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ShortCutDetail(
+                              iconColor: Colors.white,
+                              containerColor: Colors.blue,
+                              icon: Icons.image,
+                              title: 'Image.jpg',
+                              subTitle: '100.4 MB',
+                            ),
+                            ShortCutDetail(
+                              iconColor: Colors.white,
+                              containerColor: Colors.yellow.shade700,
+                              icon: Icons.audiotrack,
+                              title: 'Preview.mp4',
+                              subTitle: '45.5 MB',
+                            ),
+                            ShortCutDetail(
+                              iconColor: Colors.white,
+                              containerColor: Colors.redAccent,
+                              icon: Icons.description,
+                              title: 'Documents',
+                              subTitle: '99.9 MB',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ShortCutDetail(
+                              iconColor: Colors.white,
+                              containerColor: Colors.lightBlue.shade200,
+                              icon: Icons.rocket_launch,
+                              title: 'Image.jpg',
+                              subTitle: '100.4 MB',
+                            ),
+                            ShortCutDetail(
+                              iconColor: Colors.white,
+                              containerColor: Colors.deepPurple,
+                              icon: Icons.videocam_rounded,
+                              title: 'Preview.mp4',
+                              subTitle: '45.5 MB',
+                            ),
+                            ShortCutDetail(
+                              iconColor: Colors.white,
+                              containerColor: Colors.green.shade700,
+                              icon: Icons.design_services,
+                              title: 'Documents',
+                              subTitle: '99.9 MB',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        TextFile(
+                          text: 'Recent Download',
+                          secondIcon: Icons.restore_sharp,
+                        ),
+                        CustomListTile(
+                          subTitle: '100.4 MB',
+                          title: 'New Concept Sketch',
+                          icon: Icons.edit_calendar,
+                          color: Colors.blue,
+                        ),
+                        Divider(),
+                        CustomListTile(
+                          subTitle: '45.10 MB',
+                          title: 'easy work.doc',
+                          icon: Icons.design_services,
+                          color: Colors.red,
+                        ),
+                        Divider(),
+                        CustomListTile(
+                          subTitle: '95.6 MB',
+                          title: 'Exam.pdf',
+                          icon: Icons.description,
+                          color: Colors.lightBlue.shade400,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

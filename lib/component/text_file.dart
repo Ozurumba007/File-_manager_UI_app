@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextFile extends StatelessWidget {
+  final IconData? icon;
+  final IconData? secondIcon;
   final String text;
 
-  const TextFile({super.key, required this.text});
+  const TextFile({
+    super.key,
+    required this.text,
+    this.icon,
+    this.secondIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,7 @@ class TextFile extends StatelessWidget {
         ),
         Row(
           children: [
-            const Icon(Icons.dashboard_rounded),
+            Icon(icon),
             const SizedBox(width: 10),
             Container(
               height: 40,
@@ -30,7 +37,7 @@ class TextFile extends StatelessWidget {
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: const Icon(Icons.menu),
+              child: Icon(secondIcon),
             ),
           ],
         ),
