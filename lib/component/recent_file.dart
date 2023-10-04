@@ -1,7 +1,6 @@
 import 'package:file_manager_app_ui/component/list_tile.dart';
 import 'package:file_manager_app_ui/component/text_file.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Files extends StatelessWidget {
   final String text;

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:file_manager_app_ui/component/custom_app_bar.dart';
-import 'package:file_manager_app_ui/component/recent_file.dart';
+import 'package:file_manager_app_ui/component/list_tile.dart';
 import 'package:file_manager_app_ui/component/text_file.dart';
 import 'package:flutter/material.dart';
 
@@ -34,15 +34,22 @@ class _SecondPageState extends State<SecondPage> {
                       TextFile(text: 'Important file'),
                       Row(
                         children: [
-                          Container(
-                            color: Colors.greenAccent,
-                            height: 100,
-                            width: 100,
-                          ),
-                          Container(
-                            height: 100,
-                            width: 100,
-                            color: Colors.lightBlue,
+                          Column(
+                            children: [
+                              Container(
+                                height: 100,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.lightBlue,
+                                ),
+                                child: Icon(
+                                  Icons.image,
+                                  color: Colors.white,
+                                  size: 50,
+                                ),
+                              ),
+                            ],
                           ),
                           Container(
                             height: 100,
@@ -70,6 +77,12 @@ class _SecondPageState extends State<SecondPage> {
                           ),
                         ],
                       ),
+                      CustomListTile(
+                        subTitle: '45MB',
+                        title: 'New Concept Sketch',
+                        icon: Icons.edit,
+                        color: Colors.blue,
+                      )
                     ],
                   ),
                 ),
